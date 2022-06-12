@@ -12,6 +12,9 @@ typedef struct map
 	int	i;
 }	t_map;
 
-void	ft_sizeofmap(int fd, t_map *map);
-void	ft_mapallocation(t_map *map);
+char	*ft_read(int fd,char *p);
+void	ft_sizeofmap(char *str, t_map *map);
+void	ft_mapallocation(t_map *map, char *str);
+void	ft_add(t_map *map, char *str);
+int ft_mapchecker(t_map *map);
 #endif

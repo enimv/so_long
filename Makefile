@@ -6,7 +6,7 @@ SRCS = main.c ./get_next_line/get_next_line.c ./get_next_line/get_next_line_util
 all : $(NAME)
 
 $(NAME) :
-	@$(CC) $(CFLAGS) $(SRCS) -o $(NAME)
+	@$(CC)  $(CFLAGS) $(SRCS) -o $(NAME)
 clean :
 	@rm -rf $(OBJS)
 	@echo CLEAN !!!
