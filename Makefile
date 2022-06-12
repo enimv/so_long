@@ -1,7 +1,7 @@
 NAME = so_long
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
-SRCS = main.c ./get_next_line/get_next_line.c ./get_next_line/get_next_line_utils.c
+SRCS = main.c ./get_next_line/get_next_line.c ./get_next_line/get_next_line_utils.c map_checker.c ft_putstr.c
 
 all : $(NAME)
 

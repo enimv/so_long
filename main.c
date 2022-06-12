@@ -33,9 +33,6 @@ void	ft_sizeofmap(char *str, t_map *map)
 
 void	ft_mapallocation(t_map *map, char *str)
 {
-	int	i;
-
-	i = 0;
 	map->str = malloc(sizeof(char *) * map->l + 1);
 	while (map->l >= 0)
 	{
@@ -48,17 +45,10 @@ void	ft_mapallocation(t_map *map, char *str)
 void	ft_add(t_map *map, char *str)
 {
 	int		i;
-	char	*tmp;
-	int		a;
 
 	i = 0;
-	a = 0;
-	map->i = 0;
-	map->l = 0;
-	tmp = malloc(sizeof(char) * map->i);
 	map->l = 0;
 	map->i = 0;
-	i = 0;
 	while (str[i] != '\0')
 	{
 		if (str[i] == '\n')
@@ -68,10 +58,8 @@ void	ft_add(t_map *map, char *str)
 			i++;
 		}
 		map->str[map->l][map->i++] = str[i++];
-		
 	}
 	map->str[++map->l] = NULL;
-	free(tmp);
 }
 
 int	main()
@@ -86,6 +74,5 @@ int	main()
 	p = NULL;
 	ft_sizeofmap(ft_read(fd, p), &map);
 	free (p);
-	ft_mapchecker(&map);
-	
+	ft_mapchecker(&map);	
 }
