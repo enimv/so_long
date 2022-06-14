@@ -1,27 +1,68 @@
 #include "so_long.h"
-#include <fcntl.h>
 
-int		ft_ber_check(int ac, char **av)
+int	ft_arg_check(int ac, char **av, int fd)
 {
-	int	i;
+	if (ac != 2)
+	{
+		ft_putstr("ERROR...ARGUMMENT NOT VALID !!!\n");
+		return (1);
+	}
+	if (ft_ber_check(av) == 1)
+	{
+		ft_putstr("ERRO...MAP MUST END WIHT .BER !!!\n");
+		return (1);
+	}
+	if (fd <= 0)
+	{
+		ft_putstr("ERRO...MAP NOT FOUND !!!\n");
+		return (1);
+	}
+	return (0);
+}
+
+int	ft_comp(char **av, int i)
+{
 	char	*str;
 	int		a;
 
-	i = 0;
-	(void)ac;
-	(void)av;
-	//str = malloc(sizeof(char) * 3);
 	str = "ber";
-	while (av[1][i] && av[1][i] != '.')
+	a = 0;
+	while (av[1][i])
+	{
+		if (av[1][i] != str[a])
+			return (1);
 		i++;
-	while (str[a])
-	return (1);
+		a++;
+	}
+	// str = NULL;
+	// free (str);
+	return (0);
+}
+
+int	ft_ber_check(char **av)
+{
+	int	i;
+
+	i = 0;
+	while (av[1][i])
+	{
+		if (av[1][i] == '.')
+			break;
+		if (av[1][i + 1] == '\0')
+			return (1);
+		i++;
+	}
+	if (ft_comp(av, (i + 1)) == 1)
+		return (1);
+	return (0);
 }
 
 char	*ft_read(int fd,char *p)
 {
 	char	*str;
 	str = get_next_line(fd);
+	if (str == NULL)
+		return (NULL);
 	while (str != NULL)
 	{
 		p = ft_strjoin(p, str);
@@ -32,11 +73,13 @@ char	*ft_read(int fd,char *p)
 	return (p);
 }
 
-void	ft_sizeofmap(char *str, t_map *map)
+int	ft_sizeofmap(char *str, t_map *map)
 {
 	int	i;
 
 	i = 0;
+	if (str == NULL)
+		return (1);
 	while (str[map->i] != '\n')
 		map->i++;
 	while (str[i] != '\0')
@@ -46,6 +89,7 @@ void	ft_sizeofmap(char *str, t_map *map)
 		i++;
 	}
 	ft_mapallocation(map, str);
+	return (0);
 }
 
 void	ft_mapallocation(t_map *map, char *str)
@@ -85,15 +129,15 @@ int	main(int ac, char **av)
 	char *p;
 	t_map map;
 	int	i;
-	if (ac != 2 )
-		return (0);
-	if (ft_ber_check(ac, av) == 1)
-		return (0);
+
 	i = 0;
 	fd = open (av[1], O_RDONLY);
+	if (ft_arg_check(ac, av, fd) == 1)
+		return (0);
 	p = NULL;
-	ft_sizeofmap(ft_read(fd, p), &map);
+	if (ft_sizeofmap(ft_read(fd, p), &map) == 1)
+		return (0);
 	free (p);
 	ft_map_checker(&map);
-
+	return (0);
 }
