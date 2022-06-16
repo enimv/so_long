@@ -88,6 +88,7 @@ int	ft_sizeofmap(char *str, t_map *map)
 			map->l++;
 		i++;
 	}
+	map->l++;
 	ft_mapallocation(map, str);
 	return (0);
 }
@@ -114,12 +115,14 @@ void	ft_add(t_map *map, char *str)
 	{
 		if (str[i] == '\n')
 		{
+			map->str[map->l][map->i] = '\0';
 			map->l++;
 			map->i = 0;
 			i++;
 		}
 		map->str[map->l][map->i++] = str[i++];
 	}
+	map->str[map->l][map->i] = '\0';
 	map->str[++map->l] = NULL;
 }
 	
@@ -139,5 +142,6 @@ int	main(int ac, char **av)
 		return (0);
 	free (p);
 	ft_map_checker(&map);
+	ft_mlx_win(&map);
 	return (0);
 }
