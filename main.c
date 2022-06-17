@@ -141,7 +141,9 @@ int	main(int ac, char **av)
 	if (ft_sizeofmap(ft_read(fd, p), &map) == 1)
 		return (0);
 	free (p);
-	ft_map_checker(&map);
+	if (ft_map_checker(&map) == 1)
+		return (0);
+	printf ("map ==== %s\n", map.str[0]);
 	ft_mlx_win(&map);
 	return (0);
 }

@@ -8,11 +8,21 @@
 #include <fcntl.h>
 #include <mlx.h>
 #include <string.h>
+
+
+typedef struct mlx
+{
+	void *mlx;
+	void *mlx_win;
+}	t_mlx;
+
 typedef struct map
 {
-	int	l;
+	int		l;
 	char	**str;
-	int	i;
+	int		i;
+	void	*mlx;
+	void	*mlx_win;
 }	t_map;
 
 typedef struct player
@@ -21,17 +31,15 @@ typedef struct player
 	int	i;
 }	t_player;
 
-typedef struct exit
+typedef struct image
 {
-	int	l;
-	int	i;
-}	t_exit;
+	void	*space;
+	void	*wall;
+	void	*player;
+	void	*exit;
+	void	*obj;
+}	t_image;
 
-typedef struct mlx
-{
-	void *mlx;
-	void *mlx_win;
-}	t_mlx;
 char	*ft_read(int fd,char *p);
 int		ft_sizeofmap(char *str, t_map *map);
 void	ft_mapallocation(t_map *map, char *str);
@@ -49,5 +57,9 @@ int		ft_ber_check(char **av);
 int		ft_arg_check(int ac, char **av, int fd);
 void	ft_mlx_win(t_map *map);
 void	ft_get_len(t_map *map);
-void	ft_mlx_image(t_map *map, t_mlx *mlx);
+void	ft_mlx_image(t_map *map);
+void 	ft_xpm_to_image(t_image *image, t_map *map);
+int		key_hook(int key, t_map *map);
+void    ft_find_player(t_map *map);
+void    ft_up(t_map *map);
 #endif
