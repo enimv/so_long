@@ -1,6 +1,6 @@
 make --dry-run --always-make --keep-going --print-directory
 make: Entering directory `/Users/aoueldma/Desktop/so_long'
-gcc  -Wall -Wextra -Werror main.c ./get_next_line/get_next_line.c ./get_next_line/get_next_line_utils.c map_checker.c ft_putstr.c ft_mlx.c ft_play.c -Lmlx -lmlx -framework OpenGL -framework AppKit -o so_long
+gcc  -Wall -Wextra -Werror main.c ./get_next_line/get_next_line.c ./get_next_line/get_next_line_utils.c map_checker.c ft_putstr.c ft_mlx.c ft_play.c ft_moves.c -Lmlx -lmlx -framework OpenGL -framework AppKit -o so_long
  
 make: Leaving directory `/Users/aoueldma/Desktop/so_long'
  

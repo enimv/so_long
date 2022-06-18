@@ -22,7 +22,6 @@ int	ft_map_shape_check(t_map *map)
 
 	tmp = map->i;
 	l = 0;
-	//printf ("i = ")
 	if (map->l == map->i)
 	{
 		ft_putstr ("ERROR...MAP SHAPE MUST BE RECTANGULAR !!!\n");

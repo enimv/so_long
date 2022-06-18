@@ -25,7 +25,8 @@ int	ft_comp(char **av, int i)
 	char	*str;
 	int		a;
 
-	str = "ber";
+	//str = malloc(sizeof(char) * 4);
+	str = "ber\0";
 	a = 0;
 	while (av[1][i])
 	{
@@ -34,8 +35,8 @@ int	ft_comp(char **av, int i)
 		i++;
 		a++;
 	}
-	// str = NULL;
-	// free (str);
+	str = NULL;
+	free (str);
 	return (0);
 }
 
@@ -78,6 +79,7 @@ int	ft_sizeofmap(char *str, t_map *map)
 	int	i;
 
 	i = 0;
+	map->l = 0;
 	if (str == NULL)
 		return (1);
 	while (str[map->i] != '\n')
@@ -95,6 +97,9 @@ int	ft_sizeofmap(char *str, t_map *map)
 
 void	ft_mapallocation(t_map *map, char *str)
 {
+	printf (" i ==== %d\n", map->i);
+	printf (" l ==== %d\n", map->l);
+
 	map->str = malloc(sizeof(char *) * map->l + 1);
 	while (map->l >= 0)
 	{
@@ -143,7 +148,6 @@ int	main(int ac, char **av)
 	free (p);
 	if (ft_map_checker(&map) == 1)
 		return (0);
-	printf ("map ==== %s\n", map.str[0]);
 	ft_mlx_win(&map);
 	return (0);
 }

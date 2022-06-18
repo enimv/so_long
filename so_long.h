@@ -9,13 +9,6 @@
 #include <mlx.h>
 #include <string.h>
 
-
-typedef struct mlx
-{
-	void *mlx;
-	void *mlx_win;
-}	t_mlx;
-
 typedef struct map
 {
 	int		l;
@@ -24,12 +17,6 @@ typedef struct map
 	void	*mlx;
 	void	*mlx_win;
 }	t_map;
-
-typedef struct player
-{
-	int	l;
-	int	i;
-}	t_player;
 
 typedef struct image
 {
@@ -62,4 +49,8 @@ void 	ft_xpm_to_image(t_image *image, t_map *map);
 int		key_hook(int key, t_map *map);
 void    ft_find_player(t_map *map);
 void    ft_up(t_map *map);
+void    ft_down(t_map *map);
+void    ft_right(t_map *map);
+void    ft_left(t_map *map);
+int		ft_check_obj(t_map *map);
 #endif
