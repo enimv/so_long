@@ -5,6 +5,7 @@
 # include <stdlib.h>
 # include <limits.h>
 # include "./get_next_line/get_next_line.h"
+# include "./ft_printf/ft_printf.h"
 #include <fcntl.h>
 #include <mlx.h>
 #include <string.h>
@@ -33,7 +34,6 @@ int		ft_sizeofmap(char *str, t_map *map);
 void	ft_mapallocation(t_map *map, char *str);
 void	ft_add(t_map *map, char *str);
 int 	ft_map_checker(t_map *map);
-int		ft_putstr(char *str);
 int		ft_wall_check(t_map *map);
 int		ft_player_check(t_map *map);
 int		ft_exit_check(t_map *map);

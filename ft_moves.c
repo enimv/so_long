@@ -19,7 +19,7 @@ void    ft_up(t_map *map)
 	tmp = map->str[map->l][map->i];
 	map->str[map->l][map->i] = map->str[map->l - 1][map->i];
 	map->str[map->l - 1][map->i] = tmp;
-	printf ("move number = %d\n", map->nmoves++);
+	ft_printf ("move number = %d\n", map->nmoves++);
 	ft_mlx_image(map);
 }
 
@@ -42,7 +42,7 @@ void    ft_down(t_map *map)
 	tmp = map->str[map->l][map->i];
 	map->str[map->l][map->i] = map->str[map->l + 1][map->i];
 	map->str[map->l + 1][map->i] = tmp;
-	printf ("move number = %d\n", map->nmoves++);
+	ft_printf ("move number = %d\n", map->nmoves++);
 	ft_mlx_image(map);
 }
 
@@ -65,7 +65,7 @@ void    ft_left(t_map *map)
 	tmp = map->str[map->l][map->i];
 	map->str[map->l][map->i] = map->str[map->l][map->i - 1];
 	map->str[map->l][map->i - 1] = tmp;
-	printf ("move number = %d\n", map->nmoves++);
+	ft_printf ("move number = %d\n", map->nmoves++);
 	ft_mlx_image(map);
 }
 
@@ -88,6 +88,6 @@ void    ft_right(t_map *map)
 	tmp = map->str[map->l][map->i];
 	map->str[map->l][map->i] = map->str[map->l][map->i + 1];
 	map->str[map->l][map->i + 1] = tmp;
-	printf ("move number = %d\n", map->nmoves++);
+	ft_printf ("move number = %d\n", map->nmoves++);
 	ft_mlx_image(map);
 }
