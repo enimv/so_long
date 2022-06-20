@@ -155,7 +155,7 @@ int	ft_exit_check(t_map *map)
 		map->l++;
 		map->i = 0;
 	}
-	if (x > 1 || x == 0)
+	if (x == 0)
 	{
 		ft_putstr("ERROR...YOU MUST INSERT ONE MAP EXIT !!!\n");
 		return (1);

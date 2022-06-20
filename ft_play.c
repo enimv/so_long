@@ -3,14 +3,16 @@
 int	key_hook(int key, t_map *map)
 {
 	ft_find_player(map);
-	if (key == 126)
+	if (key == 126 || key == 13)
 		ft_up(map);
-	if (key == 125)
+	if (key == 125 || key == 1)
 		ft_down(map);
-	if (key == 124)
+	if (key == 124 || key == 2)
 		ft_right(map);
-	if (key == 123)
+	if (key == 123 || key == 0)
 		ft_left(map);
+	if (key == 53)
+		ft_exit (map);
 	return (0);
 }
 

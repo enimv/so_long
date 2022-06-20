@@ -15,6 +15,21 @@ void	ft_get_len(t_map *map)
 	}
 }
 
+int	ft_exit()
+{
+	//(void)map;
+	// ft_get_len(map);
+	// map->l--;
+	// while (map->l >= 0)
+	// {
+	// 	free (map->str[map->l]);
+	// 	map->l--;
+	// }
+	// free (map->str);
+	system("leaks so_long");
+	exit (0);
+}
+
 void	ft_mlx_win(t_map *map)
 {
 	ft_get_len(map);
@@ -22,6 +37,7 @@ void	ft_mlx_win(t_map *map)
 	map->mlx_win = mlx_new_window(map->mlx, (map->i * 60), (map->l * 60), "so_long");
 	ft_mlx_image(map);
 	mlx_key_hook(map->mlx_win, key_hook, map);
+	mlx_hook(map->mlx_win, 17, 1L << 2, ft_exit, map);
 	mlx_loop(map->mlx);
 }
 

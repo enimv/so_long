@@ -16,6 +16,7 @@ typedef struct map
 	int		i;
 	void	*mlx;
 	void	*mlx_win;
+	int		nmoves;
 }	t_map;
 
 typedef struct image
@@ -53,4 +54,5 @@ void    ft_down(t_map *map);
 void    ft_right(t_map *map);
 void    ft_left(t_map *map);
 int		ft_check_obj(t_map *map);
+int		ft_exit();
 #endif
