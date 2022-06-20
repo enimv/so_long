@@ -7,7 +7,7 @@ all : $(NAME)
 
 $(NAME) :
 	@$(CC)  $(CFLAGS) $(SRCS) -lmlx -framework OpenGL -framework AppKit -o $(NAME)
-	@echo YOUR ARE READY TO GO you !!!
+	@echo YOUR ARE READY TO GO !!!
 clean :
 	@rm -rf $(OBJS)
 	@echo CLEAN !!!
