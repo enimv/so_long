@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_play.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aoueldma <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/06/20 07:28:09 by aoueldma          #+#    #+#             */
+/*   Updated: 2022/06/20 07:28:14 by aoueldma         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "so_long.h"
 
 int	key_hook(int key, t_map *map)
@@ -12,11 +24,11 @@ int	key_hook(int key, t_map *map)
 	if (key == 123 || key == 0)
 		ft_left(map);
 	if (key == 53)
-		ft_exit (map);
+		ft_exit ();
 	return (0);
 }
 
-void    ft_find_player(t_map *map)
+void	ft_find_player(t_map *map)
 {
 	map->l = 0;
 	map->i = 0;
@@ -33,7 +45,6 @@ void    ft_find_player(t_map *map)
 		map->i = 0;
 		map->l++;
 	}
-	
 }
 
 int	ft_check_obj(t_map *map)

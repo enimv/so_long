@@ -1,19 +1,31 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_moves.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aoueldma <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/06/20 07:24:00 by aoueldma          #+#    #+#             */
+/*   Updated: 2022/06/20 07:24:06 by aoueldma         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "so_long.h"
 
-void    ft_up(t_map *map)
+void	ft_up(t_map *map)
 {
-	int tmp;
+	int	tmp;
 
 	if (map->str[map->l - 1][map->i] == '1')
 		return ;
 	if (map->str[map->l - 1][map->i] == 'E' && ft_check_obj(map) == 1)
 		return ;
 	else if (map->str[map->l - 1][map->i] == 'E' && ft_check_obj(map) == 0)
-		{
-			map->str[map->l - 1][map->i] = map->str[map->l][map->i];
-			ft_mlx_image(map);
-			ft_exit (map);
-		}
+	{
+		map->str[map->l - 1][map->i] = map->str[map->l][map->i];
+		ft_mlx_image(map);
+		ft_exit ();
+	}
 	if (map->str[map->l - 1][map->i] == 'C')
 		map->str[map->l - 1][map->i] = '0';
 	tmp = map->str[map->l][map->i];
@@ -23,20 +35,20 @@ void    ft_up(t_map *map)
 	ft_mlx_image(map);
 }
 
-void    ft_down(t_map *map)
+void	ft_down(t_map *map)
 {
-	int tmp;
+	int	tmp;
 
 	if (map->str[map->l + 1][map->i] == '1')
 		return ;
 	if (map->str[map->l + 1][map->i] == 'E' && ft_check_obj(map) == 1)
 		return ;
 	else if (map->str[map->l + 1][map->i] == 'E' && ft_check_obj(map) == 0)
-		{
-			map->str[map->l + 1][map->i] = map->str[map->l][map->i];
-			ft_mlx_image(map);
-			ft_exit (map);
-		}
+	{
+		map->str[map->l + 1][map->i] = map->str[map->l][map->i];
+		ft_mlx_image(map);
+		ft_exit ();
+	}
 	if (map->str[map->l + 1][map->i] == 'C')
 		map->str[map->l + 1][map->i] = '0';
 	tmp = map->str[map->l][map->i];
@@ -46,20 +58,20 @@ void    ft_down(t_map *map)
 	ft_mlx_image(map);
 }
 
-void    ft_left(t_map *map)
+void	ft_left(t_map *map)
 {
-	int tmp;
+	int	tmp;
 
 	if (map->str[map->l][map->i - 1] == '1')
 		return ;
 	if (map->str[map->l][map->i - 1] == 'E' && ft_check_obj(map) == 1)
 		return ;
 	else if (map->str[map->l][map->i - 1] == 'E' && ft_check_obj(map) == 0)
-		{
-			map->str[map->l][map->i - 1] = map->str[map->l][map->i];
-			ft_mlx_image(map);
-			ft_exit (map);
-		}
+	{
+		map->str[map->l][map->i - 1] = map->str[map->l][map->i];
+		ft_mlx_image(map);
+		ft_exit ();
+	}
 	if (map->str[map->l][map->i - 1] == 'C')
 		map->str[map->l][map->i - 1] = '0';
 	tmp = map->str[map->l][map->i];
@@ -69,20 +81,20 @@ void    ft_left(t_map *map)
 	ft_mlx_image(map);
 }
 
-void    ft_right(t_map *map)
+void	ft_right(t_map *map)
 {
-	int tmp;
+	int	tmp;
 
 	if (map->str[map->l][map->i + 1] == '1')
 		return ;
 	if (map->str[map->l][map->i + 1] == 'E' && ft_check_obj(map) == 1)
 		return ;
 	else if (map->str[map->l][map->i + 1] == 'E' && ft_check_obj(map) == 0)
-		{
-			map->str[map->l][map->i + 1] = map->str[map->l][map->i];
-			ft_mlx_image(map);
-			ft_exit (map);
-		}
+	{
+		map->str[map->l][map->i + 1] = map->str[map->l][map->i];
+		ft_mlx_image(map);
+		ft_exit ();
+	}
 	if (map->str[map->l][map->i + 1] == 'C')
 		map->str[map->l][map->i + 1] = '0';
 	tmp = map->str[map->l][map->i];
